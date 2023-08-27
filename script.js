@@ -17,7 +17,7 @@ function create_grid(h, l) {
 
 GRID[POSTION.y][POSTION.x] = true
 
-const display_grid = create_table(10, 10)
+const display_grid = create_table(H, L)
 
 display_grid[POSTION.y][POSTION.x].style.backgroundColor = "white"
 
@@ -66,7 +66,6 @@ function check_directions(y, x) {
     if (check_down(y, x)) directions.push("d")
     if (check_left(y, x)) directions.push("l")
     if (check_right(y, x)) directions.push("r")
-    console.log(POSTION, directions)
     return directions
 }
 
@@ -79,6 +78,7 @@ function rand_from_arr(arr) {
 
 function move(y = POSTION.y, x = POSTION.x) {
     const dirs = check_directions(y, x)
+    if (!dirs.length) return false
     const d = rand_from_arr(dirs)
     switch (d) {
         case "u":
@@ -89,7 +89,7 @@ function move(y = POSTION.y, x = POSTION.x) {
             display_grid[y][x].innerText = ""
             display_grid[y - 1][x].style.backgroundColor = "white"
             return true
-            break
+
         case "d":
             remove_bottom(y, x)
             POSTION.y++
@@ -98,7 +98,7 @@ function move(y = POSTION.y, x = POSTION.x) {
             display_grid[y][x].innerText = ""
             display_grid[y + 1][x].style.backgroundColor = "white"
             return true
-            break
+
         case "l":
             remove_left(y, x)
             POSTION.x--
@@ -107,7 +107,7 @@ function move(y = POSTION.y, x = POSTION.x) {
             display_grid[y][x].innerText = ""
             display_grid[y][x - 1].style.backgroundColor = "white"
             return true
-            break
+
         case "r":
             remove_right(y, x)
             POSTION.x++
@@ -116,7 +116,7 @@ function move(y = POSTION.y, x = POSTION.x) {
             display_grid[y][x].innerText = ""
             display_grid[y][x + 1].style.backgroundColor = "white"
             return true
-            break
+
         default:
             return false
     }

@@ -17,10 +17,10 @@ table {
 }
 
 td {
-    width: 40px;
-    height: 40px;
-    border-right: 1px solid grey;
-    border-bottom: 1px solid grey;
+    width: 10px;
+    height: 10px;
+    border-right: 1px solid blue;
+    border-bottom: 1px solid blue;
     background-color: darkgray;
     text-align: center;
 }
