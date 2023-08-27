@@ -21,5 +21,6 @@ td {
     height: 40px;
     border-right: 1px solid grey;
     border-bottom: 1px solid grey;
-    background-color: gray;
+    background-color: darkgray;
+    text-align: center;
 }
